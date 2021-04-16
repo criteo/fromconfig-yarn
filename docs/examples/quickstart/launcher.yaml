@@ -1,0 +1,8 @@
+yarn:
+  name: test-fromconfig
+
+logging:
+  level: 20
+
+launcher:
+  run: yarn
