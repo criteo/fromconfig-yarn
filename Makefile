@@ -16,7 +16,6 @@ black: ## [Local development] Auto-format python code using black
 
 test: ## [Local development] Run unit tests, doctest and notebooks
 	python -m pytest -v --cov=fromconfig_yarn --cov-report term-missing --cov-fail-under 95 tests/unit
-	python -m pytest --doctest-modules -v fromconfig_yarn
 	$(MAKE) examples
 
 
