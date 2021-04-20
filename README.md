@@ -1,4 +1,7 @@
 # FromConfig Yarn
+[![pypi](https://img.shields.io/pypi/v/fromconfig-yarn.svg)](https://pypi.python.org/pypi/fromconfig-yarn)
+[![ci](https://github.com/criteo/fromconfig-yarn/workflows/Continuous%20integration/badge.svg)](https://github.com/criteo/fromconfig-yarn/actions?query=workflow%3A%22Continuous+integration%22)
+
 
 A [fromconfig](https://github.com/criteo/fromconfig) `Launcher` for yarn execution.
 
