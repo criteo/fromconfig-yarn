@@ -2,10 +2,8 @@
 
 Usage
 -----
-python monkeypatch_fromconfig config.yaml params.yaml launcher.yaml - model - train
+python monkeypatch_fromconfig.py config.yaml params.yaml launcher.yaml - model - train
 """
-
-import sys
 
 import cluster_pack
 import skein
@@ -42,7 +40,6 @@ setattr(skein_launcher, "submit_func", _monkey_submit_func)
 
 
 if __name__ == "__main__":
-    argv = sys.argv
     from fromconfig.cli.main import main
 
     main()
