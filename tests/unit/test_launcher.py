@@ -54,6 +54,6 @@ def test_launcher(yarn, monkeypatch):
     monkeypatch.setattr(skein_launcher, "submit_func", _monkey_submit_func)
 
     config = {"run": None, "launcher": {"run": "yarn"}, "yarn": yarn}
-    launcher = fromconfig.launcher.Launcher.fromconfig(config["launcher"])
+    launcher = fromconfig.launcher.DefaultLauncher.fromconfig(config["launcher"])
     launcher(config, "run")
     assert got["ran"]
