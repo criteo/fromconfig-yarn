@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ## [0.1.1] - 2021-04-29
 
 ### Added
+- Forward MlFlow environment variables by default if set
+
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Monkey `SkeinClient` was suppressing exceptions, this is fixed
+
+### Security
+
+
+## [0.1.1] - 2021-04-29
+
+### Added
 ### Changed
 ### Deprecated
 ### Removed
