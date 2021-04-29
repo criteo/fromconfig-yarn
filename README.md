@@ -12,7 +12,7 @@ A [fromconfig](https://github.com/criteo/fromconfig) `Launcher` for yarn executi
 - [Install](#install)
 - [Quickstart](#quickstart)
 - [Usage Reference](#usage-reference)
-    - [Options](#options)
+  - [Options](#options)
 
 <!-- /MarkdownTOC -->
 
@@ -47,7 +47,7 @@ and config files
 # config.yaml
 model:
   _attr_: foo.Model
-  learning_rate: "@params.learning_rate"
+  learning_rate: "${params.learning_rate}"
 
 # params.yaml
 params:
