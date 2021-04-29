@@ -31,7 +31,7 @@ class YarnLauncher(fromconfig.launcher.Launcher):
     def __call__(self, config: Any, command: str = ""):
         """Run code on yarn."""
         # Extract params from the yarn entry of the config
-        params = config.get("yarn", {})
+        params = config.get("yarn") or {}
         env_vars = params.get("env_vars", _DEFAULT_ENV_VARS)
         hadoop_file_systems = params.get("hadoop_file_systems", ())
         ignored_packages = params.get("ignored_packages", ())
