@@ -15,7 +15,7 @@ import skein
 
 LOGGER = logging.getLogger(__name__)
 
-_DEFAULT_ENV_VARS = ("CUDA_VISIBLE_DEVICES",)
+_DEFAULT_ENV_VARS = ("CUDA_VISIBLE_DEVICES", "MLFLOW_RUN_ID", "MLFLOW_TRACKING_URI")
 
 _USER = os.environ.get("USER", "fromconfig")
 
@@ -77,7 +77,7 @@ def get_env_vars(env_vars: Iterable[str] = ()) -> Dict[str, str]:
         if os.environ.get(name) is not None:
             values[name] = os.environ[name]
         else:
-            LOGGER.warning(f"Environment Variable {name} is None (will not be forwarded to yarn)")
+            LOGGER.info(f"Environment Variable {name} is None (will not be forwarded to yarn)")
     return values
 
 

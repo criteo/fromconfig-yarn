@@ -1,5 +1,6 @@
 """Test launcher."""
 
+import contextlib
 from collections import namedtuple
 
 from cluster_pack.skein import skein_launcher
@@ -30,18 +31,17 @@ def test_launcher(yarn, monkeypatch):
 
     got = {}
 
-    class _MonkeyClient:
-        # pylint: disable=unused-argument
+    @contextlib.contextmanager
+    def _MonkeyClient():  # pylint: disable=invalid-name
+        """Monkey skein Client."""
 
-        def __enter__(self, *args, **kwargs):
-            return self
+        Client = namedtuple("Client", "application_report")
+        Report = namedtuple("Report", "tracking_url")
 
-        def __exit__(self, *args, **kwargs):
-            return self
+        def application_report(app_id):
+            return Report(app_id)
 
-        def application_report(self, app_id):
-            Report = namedtuple("Report", "tracking_uri")
-            return Report("127.0.0.1")
+        yield Client(application_report)
 
     def _monkey_submit_func(func, args, **kwargs):
         # pylint: disable=unused-argument
