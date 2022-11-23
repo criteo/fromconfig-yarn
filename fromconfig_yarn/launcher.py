@@ -41,6 +41,10 @@ class YarnLauncher(fromconfig.launcher.Launcher):
         package_path = params.get("package_path", _DEFAULT_PACKAGE_PATH)
         zip_file = params.get("zip_file", None)
         name = params.get("name", f"yarn-launcher-{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}")
+        queue = params.get("queue", None)
+        node_label = params.get("node_label", None)
+        pre_script_hook = params.get("pre_script_hook", None)
+        extra_env_vars_as_mapping = params.get("extra_env_vars_as_mapping", {})
 
         def _run(launcher, config, command):
             """Code executed on yarn."""
@@ -63,8 +67,11 @@ class YarnLauncher(fromconfig.launcher.Launcher):
                 package_path=upload_pex(package_path, ignored_packages=ignored_packages, zip_file=zip_file),
                 hadoop_file_systems=list(hadoop_file_systems),
                 additional_files=[str(path) for path in Path.cwd().glob("*.py")],
-                env_vars={**get_env_vars(env_vars), **get_jvm_env_vars(jvm_memory_in_gb)},
+                env_vars={**get_env_vars(env_vars), **get_jvm_env_vars(jvm_memory_in_gb), **extra_env_vars_as_mapping},
                 memory=memory,
+                queue=queue,
+                node_label=node_label,
+                pre_script_hook=pre_script_hook,
             )
             report = skein_client.application_report(app_id)
             LOGGER.info(f"TRACKING_URL: {report.tracking_url}")
