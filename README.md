@@ -113,3 +113,7 @@ You can set the following parameters.
 - `package_path`: The HDFS location where to save the environment
 - `zip_file`: The path to an existing `pex` file, either local or on HDFS
 - `name`: The application name
+- `queue`: The yarn queue to submit the application to
+- `node_label`: The label of the hadoop node to be scheduled
+- `pre_script_hook`: A script to be executed before python is invoked
+- `extra_env_vars`: A mapping of extra environment variables to forward to the container(s)
