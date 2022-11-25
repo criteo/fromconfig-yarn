@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org).
 
 
+## [0.1.3] - 2022-11-25
+
+### Added
+- Add more parameters to YarnLauncher to be able to propagate them to skein
+
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
 ## [0.1.2] - 2021-04-30
 
 ### Added
@@ -17,7 +28,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - Monkey `SkeinClient` was suppressing exceptions, this is fixed
 
 ### Security
-
 
 ## [0.1.1] - 2021-04-29
 
